@@ -128,6 +128,61 @@
                     </form>
                     
             </div>
+            <div id="searchmenna">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="search-box" oninput="filterOptions()">
+                <div id="elementsearchmenahesham">
+                    <option>to allah</option>
+                    <option>Because you are God</option>
+                    <option>To reassure my heart</option>
+                    <option>I Missed Prayer</option>
+                    <option>Peace be upon you</option>
+                    <option>To God</option>
+                </div>
+            </div>
+            <script>
+                  // تحديد النموذج
+const form = document.querySelector('form');
+
+// تحديد الحقول
+const nameInput = document.querySelector('input[type="text"]');
+const emailInput = document.querySelector('input[type="email"]');
+const phoneInput = document.querySelector('input[type="tel"]');
+const feedbackInput = document.querySelector('textarea');
+// تحديد الزر
+const saveButton = document.querySelector('.save');
+
+// إضافة حدث "submit" للنموذج
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+    // التحقق من أن الحقول المطلوبة قد تم ملؤها
+  if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || feedbackInput.value.trim() === '') {
+      alert('يرجى ملء جميع الحقول المطلوبة');
+      return;
+  }
+
+    // التحقق من صحة الإيميل
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailPattern.test(emailInput.value)) {
+      alert('الرجاء إدخال عنوان بريد إلكتروني صالح');
+      return;
+  }
+
+    // حفظ البيانات في local storage
+  const feedbackData = {
+      name: nameInput.value,
+      email: emailInput.value,
+      phone: phoneInput.value,
+      feedback: feedbackInput.value,
+  };
+  localStorage.setItem('feedbackData', JSON.stringify(feedbackData));
+      let value=this.querySelector(.forminfomennahesham);
+      value.innerHTML=$
+      
+  alert('تم حفظ البيانات بنجاح');
+});
+            </script>
             <footer>
                 <div class="mhfoot">
                     <p>All rights reserved &copy; 2024</p>
